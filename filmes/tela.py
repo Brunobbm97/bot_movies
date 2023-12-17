@@ -3,6 +3,9 @@ from tkinter import *
 from tkinter import ttk
 from PIL import Image, ImageTk
 
+#importanto a funcao principal
+from main import *
+
 # cores ---------------------
 co0 = "#2e2d2b"  # Preto
 co1 = "#feffff"  # branca
@@ -60,4 +63,98 @@ app_.place(x=0, y=7)
 l_linha = Label(framePergunta, width=450, height=1, anchor=NW,font=('Verdana 1'), bg=co3, fg=co1)
 l_linha.place(x=0, y=57)
 
+
+# Fruncao resoltado
+def resultado(i):
+    global capa_1, capa_2, capa_3
+
+    # filmes sugeridos
+    sugeridos = suggest_movies(i)
+
+    # titles = sugeridos
+
+
+# Frame Meio --------------------------------
+
+# configurando botoes
+
+img_1 = Image.open('image/happy.png')
+img_1 = img_1.resize((28,28))
+img_1 = ImageTk.PhotoImage(img_1)
+
+b_1 = Button(frameMeio,command=lambda:resultado('well'), image=img_1, compound=LEFT, width=100, text=' OK ', bg=co1, fg=co0, font=('Ivy 10'), overrelief=RIDGE)
+b_1.grid(row=0, column=0, sticky=NSEW, pady=2, padx=2)
+
+img_2 = Image.open('image/happy.png')
+img_2 = img_2.resize((28,28))
+img_2 = ImageTk.PhotoImage(img_2)
+
+b_1 = Button(frameMeio,command=lambda:resultado('Anger'), image=img_2, compound=LEFT, width=100, text=' Anger ', bg=co1, fg=co0, font=('Ivy 10'), overrelief=RIDGE)
+b_1.grid(row=0, column=1, sticky=NSEW, pady=2, padx=2)
+
+img_3 = Image.open('image/happy.png')
+img_3 = img_3.resize((28,28))
+img_3 = ImageTk.PhotoImage(img_3)
+
+b_1 = Button(frameMeio,command=lambda:resultado('happy'), image=img_3, compound=LEFT, width=100, text=' Happy ', bg=co1, fg=co0, font=('Ivy 10'), overrelief=RIDGE)
+b_1.grid(row=0, column=2, sticky=NSEW, pady=2, padx=2)
+
+img_4 = Image.open('image/happy.png')
+img_4 = img_4.resize((28,28))
+img_4 = ImageTk.PhotoImage(img_4)
+
+b_1 = Button(frameMeio,command=lambda:resultado('gratitude'), image=img_4, compound=LEFT, width=100, text='Gratidao', bg=co1, fg=co0, font=('Ivy 10'), overrelief=RIDGE)
+b_1.grid(row=0, column=3, sticky=NSEW, pady=2, padx=2)
+
+img_5 = Image.open('image/happy.png')
+img_5 = img_5.resize((28,28))
+img_5 = ImageTk.PhotoImage(img_5)
+
+b_1 = Button(frameMeio,command=lambda:resultado('frustration'), image=img_5, compound=LEFT, width=100, text='Frustracao', bg=co1, fg=co0, font=('Ivy 10'), overrelief=RIDGE)
+b_1.grid(row=1, column=0, sticky=NSEW, pady=2, padx=2)
+
+img_6 = Image.open('image/happy.png')
+img_6 = img_6.resize((28,28))
+img_6 = ImageTk.PhotoImage(img_6)
+
+b_1 = Button(frameMeio,command=lambda:resultado('ansiedade'), image=img_6, compound=LEFT, width=100, text=' Ansiedade ', bg=co1, fg=co0, font=('Ivy 10'), overrelief=RIDGE)
+b_1.grid(row=1, column=1, sticky=NSEW, pady=2, padx=2)
+
+img_7 = Image.open('image/happy.png')
+img_7 = img_7.resize((28,28))
+img_7 = ImageTk.PhotoImage(img_7)
+
+b_1 = Button(frameMeio,command=lambda:resultado('prazer'), image=img_7, compound=LEFT, width=100, text=' Prazer ', bg=co1, fg=co0, font=('Ivy 10'), overrelief=RIDGE)
+b_1.grid(row=1, column=2, sticky=NSEW, pady=2, padx=2)
+
+img_8 = Image.open('image/angry.png')
+img_8 = img_8.resize((28,28))
+img_8 = ImageTk.PhotoImage(img_8)
+
+b_1 = Button(frameMeio,command=lambda:resultado('horror'), image=img_8, compound=LEFT, width=100, text=' Horror ', bg=co1, fg=co0, font=('Ivy 10'), overrelief=RIDGE)
+b_1.grid(row=1, column=3, sticky=NSEW, pady=2, padx=2)
+
+
+
+
+
+
 janela.mainloop()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
