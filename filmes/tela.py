@@ -3,6 +3,8 @@ from tkinter import *
 from tkinter import ttk
 from PIL import Image, ImageTk
 
+from datetime import datetime
+
 #importanto a funcao principal
 from main import *
 
@@ -80,6 +82,34 @@ def resultado(i):
     for widget in frameBaixo.winfo_children():
         widget.destroy()
 
+    # ---------- Criando Frame para cada filme---------
+    # filme 1
+    frame_1 = Frame(frameBaixo, width=150, height=400, bg=co1)
+    frame_1.grid(row=0, column=0, sticky=NSEW, pady=5)
+
+    # nome
+    nome = Label(frame_1, text=f'{titles[0]}',height=2, padx=10,pady=5, wraplength=100, justify='left',
+                 relief=SOLID, anchor=NW, font=('Ivy 9 bold'), bg=co1, fg=co0, bd=1, highlightbackground='white')
+    nome.place(x=7, y=260)
+
+    # Data
+    data_string_1 = f'{data[0]}'
+    data_1 = datetime.strptime(data_string_1, '%Y-%m-%d')
+    data_formatada = data_1.strftime('%B %Y')
+
+    l_data_1 = Label(frame_1, text=f'Lançamento: {data_formatada}',
+                     anchor=NW, font=('Ivy 8'), bg=co1, fg=co0)
+    l_data_1.place(x=5, y=310)
+
+    # Voto
+    l_voto_1 = Label(frame_1, text=f'Media de votos: {votos[0]/10}',
+                     anchor=NW, font=('Ivy 8'), bg=co1, fg=co0)
+    l_voto_1.place(x=5, y=330)
+
+
+
+
+
 
 # Frame Meio --------------------------------
 
@@ -92,7 +122,7 @@ img_1 = ImageTk.PhotoImage(img_1)
 b_1 = Button(frameMeio,command=lambda:resultado('well'), image=img_1, compound=LEFT, width=100, text=' OK ', bg=co1, fg=co0, font=('Ivy 10'), overrelief=RIDGE)
 b_1.grid(row=0, column=0, sticky=NSEW, pady=2, padx=2)
 
-img_2 = Image.open('image/happy.png')
+img_2 = Image.open('image/angry.png')
 img_2 = img_2.resize((28,28))
 img_2 = ImageTk.PhotoImage(img_2)
 
@@ -106,7 +136,7 @@ img_3 = ImageTk.PhotoImage(img_3)
 b_1 = Button(frameMeio,command=lambda:resultado('happy'), image=img_3, compound=LEFT, width=100, text=' Happy ', bg=co1, fg=co0, font=('Ivy 10'), overrelief=RIDGE)
 b_1.grid(row=0, column=2, sticky=NSEW, pady=2, padx=2)
 
-img_4 = Image.open('image/happy.png')
+img_4 = Image.open('image/angry.png')
 img_4 = img_4.resize((28,28))
 img_4 = ImageTk.PhotoImage(img_4)
 
@@ -120,7 +150,7 @@ img_5 = ImageTk.PhotoImage(img_5)
 b_1 = Button(frameMeio,command=lambda:resultado('frustration'), image=img_5, compound=LEFT, width=100, text='Frustracao', bg=co1, fg=co0, font=('Ivy 10'), overrelief=RIDGE)
 b_1.grid(row=1, column=0, sticky=NSEW, pady=2, padx=2)
 
-img_6 = Image.open('image/happy.png')
+img_6 = Image.open('image/angry.png')
 img_6 = img_6.resize((28,28))
 img_6 = ImageTk.PhotoImage(img_6)
 
