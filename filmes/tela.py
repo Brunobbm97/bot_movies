@@ -71,7 +71,14 @@ def resultado(i):
     # filmes sugeridos
     sugeridos = suggest_movies(i)
 
-    # titles = sugeridos
+    titles = sugeridos[0]
+    poster = sugeridos[1]
+    data = sugeridos[2]
+    votos = sugeridos[3]
+
+    # Limpando o frame baixo
+    for widget in frameBaixo.winfo_children():
+        widget.destroy()
 
 
 # Frame Meio --------------------------------

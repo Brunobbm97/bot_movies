@@ -24,7 +24,6 @@ def suggest_movies(i):
     url = f"https://api.themoviedb.org/3/discover/movie?api_key={api_key}&sort_by=popularity.desc&with_genres={genre}&vote_count.gte=4"
     response = requests.get(url).json()
 
-    print(response)
 
     if response['results']:
 
@@ -37,26 +36,13 @@ def suggest_movies(i):
         # pegando os votos dos filmes
         vote_average = [result['vote_average'] for result in response['results'][:3]]
 
+        # pegando os posters dos filmes
+        # definindo a tring do prefixo
 
+        prefix = "https://www.themoviedb.org/t/p/w220_and_h330_face/"
 
-        for title in titles:
-            print(f"- {title}")
-    else:
-        print("Nao encontrei nenhuma sugestao de filme para voce")
+        # concatenar o prefixo com o caminho da imagem do link
+        poster_path = [prefix + result['poster_path'].lstrip('/') for result in response['results'][:3]]
 
-def chatbot():
-    print("Olá sou um chat de sugestao de filmes. Como posso te ajudar hoje ? ")
-
-    while True:
-        try:
-            response = input().lower()
-            if 'filme' or 'filmes' in response:
-                suggest_movies()
-            elif 'tchau' in response or 'adeus' in response:
-                print("Adeus! te vejo por ai vacilao")
-                break
-            else:
-                print("Escreve direito! ")
-        except KeyboardInterrupt:
-            break;
-
+        #retornando os resultados como uma lista
+        return [titles, poster_path, release_date, vote_average]
